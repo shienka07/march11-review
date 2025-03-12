@@ -3,11 +3,10 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initia다l-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>필라테스 도우미 - 개인 맞춤형 필라테스 조언</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="<%= request.getContextPath() %>/assets/style.css" rel="stylesheet">
 </head>
 <body>
@@ -20,7 +19,7 @@
 
         <!-- Pilates SVG Icon -->
         <div class="text-center">
-            <img id="main-image" src="<%= request.getContextPath() %>/images/main.jpeg">
+            <img id="main-image" src="<%= request.getContextPath() %>/images/main.webp">
         </div>
 
         <div class="rotating-text mt-3">
@@ -32,12 +31,11 @@
     <div class="card question-form-card mb-4">
         <h3 class="mb-4 text-center">궁금한 점을 물어보세요</h3>
         <% if (session.getAttribute("message") != null) { %>
-        <p><%= session.getAttribute("message")%> </p>
+        <p><%= session.getAttribute("message") %></p>
         <% } %>
-
-        <form id="questionForm">
+        <form id="questionForm" method="post">
             <div class="mb-3">
-                <input type="text" class="form-control" id="questionInput" placeholder="예: 허리 통증에 좋은 필라테스 동작은 무엇인가요?" required>
+                <input type="text" name="question" class="form-control" id="questionInput" placeholder="예: 허리 통증에 좋은 필라테스 동작은 무엇인가요?" required>
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-gradient">질문하기</button>
@@ -45,20 +43,13 @@
         </form>
     </div>
 
-    <!-- Response Card (hidden initially) -->
-    <div class="card response-card" id="responseCard">
-        <h4 class="mb-3">AI 필라테스 코치 답변:</h4>
-        <div id="responseText" class="mb-4"></div>
-        <div class="text-center mt-4">
-            <button id="newQuestionBtn" class="btn btn-outline-primary">새로운 질문하기</button>
-        </div>
-    </div>
-
     <!-- Features Section -->
     <div class="features-section">
         <div class="feature-item text-center">
             <div class="feature-icon">
-                <i class="bi bi-arrow-up-circle-fill" style="font-size: 40px;"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l3.09 3.09a.75.75 0 1 1-1.06 1.06L7.5 7.252V13.5a.75.75 0 0 1-1.5 0v-6.247l-3.45 3.45a.75.75 0 0 1-1.06-1.061l3.09-3.09a.75.75 0 0 1 1.06 0l3.45 3.45a.75.75 0 0 1 0 1.061z"/>
+                </svg>
             </div>
             <h5>맞춤형 루틴</h5>
             <p>당신의 목표와 수준에 맞는 개인 맞춤형 필라테스 루틴</p>
@@ -66,7 +57,11 @@
 
         <div class="feature-item text-center">
             <div class="feature-icon">
-                <i class="bi bi-people-fill" style="font-size: 40px;"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                    <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                </svg>
             </div>
             <h5>전문가 조언</h5>
             <p>필라테스 전문가들의 지식을 기반으로 한 조언</p>
@@ -74,7 +69,12 @@
 
         <div class="feature-item text-center">
             <div class="feature-icon">
-                <i class="bi bi-bullseye" style="font-size: 40px;"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/>
+                    <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
+                    <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
             </div>
             <h5>정확한 기술</h5>
             <p>필라테스 동작을 정확하게 수행하는 방법 안내</p>
@@ -116,42 +116,6 @@
         "목과 어깨 긴장 완화를 위한 필라테스 동작으로는 넥 롤(Neck Roll), 숄더 브릿지(Shoulder Bridge), 체스트 오프너(Chest Opener)가 효과적입니다. 이 동작들은 상체의 긴장을 풀고 혈액 순환을 개선하는 데 도움이 됩니다. 특히 컴퓨터 작업을 많이 하시는 분들에게 추천합니다."
     ];
 
-    // Form submit event
-    document.getElementById('questionForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const questionInput = document.getElementById('questionInput');
-        const responseCard = document.getElementById('responseCard');
-        const responseText = document.getElementById('responseText');
-
-        if (questionInput.value.trim() !== '') {
-            // Show loading state
-            responseText.innerHTML = '<div class="d-flex justify-content-center"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>';
-            responseCard.classList.add('show');
-
-            // Simulate API call delay
-            setTimeout(() => {
-                // Get random response for demo
-                const randomResponse = sampleResponses[Math.floor(Math.random() * sampleResponses.length)];
-
-                // Display response with typing effect
-                typeWriter(responseText, randomResponse, 0, 20);
-            }, 1500);
-        }
-    });
-
-    // New question button
-    document.getElementById('newQuestionBtn').addEventListener('click', function() {
-        const responseCard = document.getElementById('responseCard');
-        const questionInput = document.getElementById('questionInput');
-
-        responseCard.classList.remove('show');
-        setTimeout(() => {
-            questionInput.value = '';
-            questionInput.focus();
-        }, 500);
-    });
-
     // Typing effect function
     function typeWriter(element, text, i, speed) {
         if (i < text.length) {
@@ -168,4 +132,3 @@
 </script>
 </body>
 </html>
-

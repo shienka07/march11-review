@@ -4,9 +4,11 @@
     <title>Title</title>
 </head>
 <body>
-    <p>답입니다</p>
+<p>답입니당!</p>
     <% if (session.getAttribute("answer") != null) { %>
-        <p><%= session.getAttribute("answer")%></p>
+        <p><%= session.getAttribute("question")%> </p>
+        <p><%= session.getAttribute("answer")%> </p>
+        <p><%= session.getAttribute("reasoning")%> </p>
     <% } %>
 </body>
 </html>

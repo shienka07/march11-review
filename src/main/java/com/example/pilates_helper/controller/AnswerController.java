@@ -1,4 +1,4 @@
-package org.example.pilates_helper.controller;
+package com.example.pilates_helper.controller;
 
 import com.example.pilates_helper.controller.Controller;
 import jakarta.servlet.ServletException;
