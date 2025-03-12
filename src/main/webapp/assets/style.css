@@ -1,13 +1,14 @@
 :root {
-    --primary: #6a11cb;
-    --secondary: #2575fc;
-    --light: #f8f9fa;
-    --dark: #212529;
+    --primary: #86A788;    /* 이전: #6a11cb */
+    --secondary: #FFE2E2;  /* 이전: #2575fc */
+    --light: #FFFDEC;      /* 이전: #f8f9fa */
+    --accent: #FFCFCF;     /* 추가된 색상 */
+    --dark: #212529;       /* 유지됨 */
 }
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
-    background: linear-gradient(120deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: var(--light);  /* 그라데이션 제거하고 단색으로 변경 */
     min-height: 100vh;
 }
 
@@ -27,8 +28,8 @@ body {
 }
 
 .intro-card {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
+    background: var(--primary);  /* 그라데이션 제거하고 단색으로 변경 */
+    color: var(--light);  /* 밝은 텍스트로 변경 (어두운 배경에 맞게) */
     padding: 2.5rem 2rem;
 }
 
@@ -57,8 +58,8 @@ body {
 }
 
 .btn-gradient {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
+    background: var(--accent);  /* 그라데이션 제거하고 단색으로 변경 */
+    color: var(--dark);  /* 어두운 텍스트 유지 */
     border: none;
     border-radius: 50px;
     padding: 0.5rem 2rem;
@@ -68,8 +69,8 @@ body {
 
 .btn-gradient:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
-    color: white;
+    box-shadow: 0 5px 15px rgba(134, 167, 136, 0.4);  /* 새 primary 색상에 맞게 그림자 조정 */
+    color: var(--dark);
 }
 
 #questionInput {
@@ -77,6 +78,12 @@ body {
     padding: 1rem 1.5rem;
     border: 1px solid #e9ecef;
     font-size: 1rem;
+}
+
+#questionInput:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 0.2rem rgba(255, 207, 207, 0.25); /* FFCFCF의 반투명 버전 */
+    outline: none;
 }
 
 .features-section {
@@ -92,6 +99,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
+    border-left: 3px solid var(--accent); /* 액센트 색상의 좌측 테두리 추가 */
 }
 
 .feature-item:hover {
@@ -100,7 +108,7 @@ body {
 
 .feature-icon {
     margin-bottom: 1rem;
-    color: var(--primary);
+    color: var(--accent);  /* 아이콘 색상을 새로운 accent 색상으로 변경 */
 }
 
 .rotating-text {
