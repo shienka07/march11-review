@@ -1,6 +1,7 @@
 package com.example.pilates_helper.service;
 
 import com.example.pilates_helper.model.dto.BaseLLMResponse;
+import com.example.pilates_helper.model.dto.ImageLLMResponse;
 import com.example.pilates_helper.model.dto.ModelType;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -36,6 +37,12 @@ public class TogetherService {
     }
 
     public String useImage(String prompt) throws JsonProcessingException {
-        return repository.callAPI(new TogetherAPIParam(prompt, ModelType.IMAGE));
+        String promptPreProcessing = "I need image that explain {%s}. No Text. Just Image please use webteon (korean comic) style. cute. not realistic. please remove chinese character or sculture things". formatted(prompt);
+        String responseText = repository.callAPI(new TogetherAPIParam(
+                promptPreProcessing,
+                ModelType.IMAGE
+        ));
+//        return responseText;
+        return objectMapper.readValue(responseText, ImageLLMResponse.class).data().get(0).url();
     }
 }

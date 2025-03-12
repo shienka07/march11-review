@@ -1,0 +1,150 @@
+/* 필라테스 도우미 - 결과 페이지 스타일 */
+
+.result-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-label {
+    display: block;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.question-text {
+    color: var(--dark);
+    font-style: italic;
+    padding-left: 10px;
+    border-left: 3px solid var(--primary);
+}
+
+.answer-text {
+    line-height: 1.8;
+}
+
+.thinking-summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primary);
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+}
+
+.thinking-summary:hover {
+    color: var(--accent);
+}
+
+.thinking-block, .reasoning-block {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 1.2rem;
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+    margin-top: 0.5rem;
+}
+
+.result-image {
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-share {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-share:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(134, 167, 136, 0.4);
+    color: white;
+}
+
+.copy-success {
+    display: none;
+    margin-left: 10px;
+    color: var(--primary);
+    font-weight: 500;
+    animation: fadeEffect 3s;
+}
+
+@keyframes fadeEffect {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+/* 애니메이션 효과 */
+.result-item {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.result-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.result-item:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.result-item:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.result-item:nth-child(4) {
+    animation-delay: 0.7s;
+}
+
+.result-image {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.9s;
+}
+
+.action-buttons {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 1.1s;
+}
+
+/* 모바일 대응 */
+@media (max-width: 576px) {
+    .action-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-gradient, .btn-share {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .copy-success {
+        display: block;
+        text-align: center;
+        margin-top: 5px;
+        margin-left: 0;
+    }
+}
