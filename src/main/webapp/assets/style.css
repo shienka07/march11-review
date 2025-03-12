@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
-    background: var(--light);  /* 그라데이션 제거하고 단색으로 변경 */
+    background: linear-gradient(120deg, var(--light) 0%, var(--secondary) 100%);  /* 그라데이션 유지 */
     min-height: 100vh;
 }
 
@@ -29,7 +29,7 @@ body {
 
 .intro-card {
     background: var(--primary);  /* 그라데이션 제거하고 단색으로 변경 */
-    color: var(--light);  /* 밝은 텍스트로 변경 (어두운 배경에 맞게) */
+    color: var(--light);  /* 어두운 배경에 맞게 밝은 텍스트로 변경 */
     padding: 2.5rem 2rem;
 }
 

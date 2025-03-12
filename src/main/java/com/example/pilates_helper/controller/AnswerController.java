@@ -1,24 +1,26 @@
-package com.example.pilates_helper.controller;
+package org.example.pilates_helper.controller;
 
+import com.example.pilates_helper.controller.Controller;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet("/")
-public class AnswerController extends Controller{
+@WebServlet ("/answer")
+public class AnswerController extends Controller {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        HttpSession session = req.getSession();
+        if (session.getAttribute("answer") == null) {
+            resp.sendRedirect(req.getContextPath() + "/");
+            return;
+        }
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html");
-        view(req, resp, "index");
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String question = req.getParameter("question");
+        view(req, resp, "answer");
     }
 }

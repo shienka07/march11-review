@@ -5,5 +5,8 @@
 </head>
 <body>
     <p>답입니다</p>
+    <% if (session.getAttribute("answer") != null) { %>
+        <p><%= session.getAttribute("answer")%></p>
+    <% } %>
 </body>
 </html>
